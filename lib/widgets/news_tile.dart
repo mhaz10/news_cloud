@@ -14,13 +14,14 @@ class NewsTile extends StatelessWidget {
       children: [
         ClipRRect(
             borderRadius: BorderRadius.circular(6),
-            child: Image.network(
-              articleModel.image ?? '',
+            child: articleModel.image != '' ? Image.network(
+              articleModel.image!,
               height: 200,
               width: double.infinity,
               fit: BoxFit.cover,
               errorBuilder: (context, error, stackTrace) => Center(child: Icon(Icons.error)),
-            )),
+            ) : Center(child: Icon(Icons.error,))
+        ),
         const SizedBox(
           height: 12,
         ),
@@ -38,7 +39,7 @@ class NewsTile extends StatelessWidget {
           height: 8,
         ),
         Text(
-          articleModel.subTitle ?? '' ,
+          articleModel.subTitle!,
           maxLines: 2,
           style: const TextStyle(color: Colors.grey, fontSize: 14),
         )

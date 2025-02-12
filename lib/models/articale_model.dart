@@ -7,9 +7,9 @@ class ArticaleModel {
 
   factory ArticaleModel.fromJson(Map<String, dynamic> json) {
     return ArticaleModel(
-        image: json['urlToImage'],
+        image: json['urlToImage'] ?? '',
         title: json['title'],
-        subTitle: json['description'],
+        subTitle: json['description'] ?? '',
     );
   }
 }
